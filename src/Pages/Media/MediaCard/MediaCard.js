@@ -14,7 +14,7 @@ const MediaCard = ({ post, refetch }) => {
     const [addComment, setAddComment] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/posts/${_id}`)
+        fetch(`https://say-us-server.vercel.app/posts/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setLoveCount(data.loveCount);
@@ -24,7 +24,7 @@ const MediaCard = ({ post, refetch }) => {
     }, [_id, love]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/comments/${_id}`)
+        fetch(`https://say-us-server.vercel.app/comments/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setComments(data);
@@ -42,7 +42,7 @@ const MediaCard = ({ post, refetch }) => {
 
         const commentInfo = { postId: _id, commentedUserName: user?.displayName, commentedUserEmail: user?.email, commentedUserPhotoURL: user?.photoURL, comment };
 
-        fetch('http://localhost:5000/comments', {
+        fetch('https://say-us-server.vercel.app/comments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -64,7 +64,7 @@ const MediaCard = ({ post, refetch }) => {
     }
 
     const handleAddLove = () => {
-        fetch(`http://localhost:5000/posts/addLove/${_id}`, {
+        fetch(`https://say-us-server.vercel.app/posts/addLove/${_id}`, {
             method: 'PUT'
         })
             .then(res => res.json())
@@ -76,7 +76,7 @@ const MediaCard = ({ post, refetch }) => {
     }
 
     const handleRemoveLove = () => {
-        fetch(`http://localhost:5000/posts/removeLove/${_id}`, {
+        fetch(`https://say-us-server.vercel.app/posts/removeLove/${_id}`, {
             method: 'PUT'
         })
             .then(res => res.json())

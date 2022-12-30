@@ -12,7 +12,7 @@ const About = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users`)
+        fetch(`https://say-us-server.vercel.app/users`)
             .then((res) => res.json())
             .then((data) => {
                 setDbUser(data);
@@ -51,7 +51,7 @@ const About = () => {
                     photoURL: imageData?.data?.display_url,
                 };
                 // console.log(Update);
-                fetch(`http://localhost:5000/user/${userMatch._id}`, {
+                fetch(`https://say-us-server.vercel.app/user/${userMatch._id}`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",
@@ -77,7 +77,7 @@ const About = () => {
     // const { data: selectedUser = [], refetch } = useQuery({
     //     queryKey: ['selectedUser', user?.email],
     //     queryFn: async () => {
-    //         const res = await fetch(`http://localhost:5000/users/${user?.email}`);
+    //         const res = await fetch(`https://say-us-server.vercel.app/users/${user?.email}`);
     //         const data = await res.json();
     //         return data;
     //     }

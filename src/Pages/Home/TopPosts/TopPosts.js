@@ -6,7 +6,7 @@ const TopPosts = () => {
     const { data: topPosts = [] } = useQuery({
         queryKey: ['topPosts'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/topPosts');
+            const res = await fetch('https://say-us-server.vercel.app/topPosts');
             const data = await res.json();
             return data;
         }

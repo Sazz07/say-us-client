@@ -15,7 +15,7 @@ const Navbar = () => {
             <div className="navbar-start">
                 <Link
                     to="/"
-                    className="flex rounded-lg py-2 font-semibold text-[#5596e6] text-2xl"
+                    className="flex rounded-lg py-2 font-semibold text-purple-700 text-2xl"
                 >
                     {/* <img src={logo} className="w-8 rounded-full " alt="" /> */}
                     <span className="px-1"> SayUs</span>
@@ -52,7 +52,7 @@ const Navbar = () => {
                         className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                     >
                         <li>
-                            <Link>Profile</Link>
+                            <Link to='/about'>About</Link>
                         </li>
                         <div className="lg:hidden md:hidden">
                             <li>

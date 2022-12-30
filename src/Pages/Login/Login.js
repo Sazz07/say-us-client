@@ -53,7 +53,7 @@ const Login = () => {
                 setLoading(false);
                 toast.success('Login Successfully.');
                 
-                fetch('http://localhost:5000/users', {
+                fetch('https://say-us-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -115,7 +115,7 @@ const Login = () => {
     // //             const user = result.user;
     // //             setLoading(false);
 
-    // //             fetch('http://localhost:5000/users', {
+    // //             fetch('https://say-us-server.vercel.app/users', {
     // //                 method: 'POST',
     // //                 headers: {
     // //                     'content-type': 'application/json'
