@@ -17,8 +17,13 @@ const Details = () => {
             .catch(err => console.error(err))
     }, [details._id]);
     return (
-        <div class="overflow-hidden bg-gray-50 h-screen my-auto">
+        <div class="overflow-hidden bg-gray-50 h-screen my-auto mt-5">
             <div class="grid grid-col-1 lg:grid-cols-2 w-3/4 mx-auto">
+                <img
+                    alt=""
+                    src={details.image}
+                    class="h-56 w-full object-contain sm:h-full"
+                />
                 <div class="p-8 md:p-12 lg:px-16 lg:py-24">
                     <div class="mx-auto max-w-xl">
                         <h2 class="text-2xl font-bold text-gray-900 md:text-3xl">
@@ -52,12 +57,6 @@ const Details = () => {
                         </div>
                     </div>
                 </div>
-
-                <img
-                    alt=""
-                    src={details.image}
-                    class="h-56 w-full object-contain sm:h-full"
-                />
             </div>
         </div>
     );
