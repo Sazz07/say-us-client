@@ -1,9 +1,9 @@
-import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
-import useToken from '../../../hooks/useToken';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useToken from '../../hooks/useToken';
+
 
 
 const Login = () => {
@@ -52,6 +52,7 @@ const Login = () => {
                 const user = result.user;
                 setLoading(false);
                 toast.success('Login Successfully.');
+                
                 fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {

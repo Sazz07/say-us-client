@@ -36,7 +36,7 @@ const Navbar = () => {
                     </li>
 
                     <li>
-                        <Link>About</Link>
+                        <Link to='/about'>About</Link>
                     </li>
                 </ul>
             </div>
@@ -68,7 +68,7 @@ const Navbar = () => {
                             </li>
 
                             <li>
-                                <Link>About</Link>
+                                <Link to='/about'>About</Link>
                             </li>
                         </div>
                         {user?.email ? (

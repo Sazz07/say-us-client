@@ -18,12 +18,9 @@ const AuthProvider = ({ children }) => {
     };
 
     // 2. Update user
-    const updateUser = (name, photo) => {
+    const updateUser = (userInfo) => {
         setLoading(true);
-        return updateProfile(auth.currentUser, {
-            displayName: name,
-            photoURL: photo
-        });
+        return updateProfile(auth.currentUser, userInfo);
     };
 
     // 3. Login with Password
