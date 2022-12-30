@@ -22,29 +22,40 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        setError('');
+        const photoURL = form.image.files[0];
+        const formData = new FormData();
+        formData.append("image", photoURL);
+        const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_imgbb_key}`;
 
-        createUser(email, password)
-            .then(result => {
-                const user = result.user;
-
-                toast.success('Congratulation. Sign Up complete.');
-                setLoading(false);
-                form.reset();
-
-                const userInfo = {
-                    displayName: name,
-                };
-                updateUser(userInfo)
-                    .then(() => {
-                        saveUser(name, email);
+        fetch(url, {
+            method: "POST",
+            body: formData,
+        })
+            .then((res) => res.json())
+            .then((imageData) => {
+                createUser(email, password)
+                    .then(result => {
+                        const user = result.user;
+                        toast.success('Congratulation. Sign Up complete.');
+                        setLoading(false);
+                        setError('');
+                        form.reset();
+                        const userInfo = {
+                            displayName: name,
+                            photoURL: imageData.data.display_url
+                        };
+                        updateUser(userInfo)
+                            .then(() => {
+                                saveUser(name, email, photoURL);
+                            })
+                            .catch(error => console.error(error))
                     })
-                    .catch(error => console.error(error))
+                    .catch(error => {
+                        console.error(error);
+                        setError(error.message);
+                    });
             })
-            .catch(error => {
-                console.error(error);
-                setError(error.message);
-            });
+            .catch((err) => console.log(err));
 
     };
 
@@ -83,7 +94,7 @@ const SignUp = () => {
             .catch(err => console.log(err));
 
     };
-    
+
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
             <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
@@ -163,13 +174,16 @@ const SignUp = () => {
                         </div>
 
                         <div className="flex flex-col mb-6">
-                            <label htmlFor="role" className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">What you want to be?:</label>
-                            <select type="text"
-                                name='role'
-                                className="select select-bordered text-sm sm:text-base pr-4 rounded-lg border border-gray-400 w-full py-2" required>
-                                <option selected value="buyer">buyer</option>
-                                <option value="seller">seller</option>
-                            </select>
+                            <div>
+                                <input
+                                    required
+                                    type="file"
+                                    id="image"
+                                    name="image"
+                                    accept="image/*"
+                                    className="file-input file-input-primary w-full max-w-xs"
+                                />
+                            </div>
                         </div>
 
                         {/* <div className="flex items-center mb-6 -mt-4">

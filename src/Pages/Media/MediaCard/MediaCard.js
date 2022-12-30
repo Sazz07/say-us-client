@@ -101,7 +101,7 @@ const MediaCard = ({ post, refetch }) => {
             <div className="pt-3 pb-2 px-4 text-center">
                 {postText}
             </div>
-            <div className="p-3 bg-gray-100">
+            <div className="p-3 bg-red-100">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                         {
@@ -151,7 +151,7 @@ const MediaCard = ({ post, refetch }) => {
                     {
                         user?.email &&
                         <form onSubmit={handleAddComment} className='flex justify-between items-center'>
-                            <input type="text" name='comment' placeholder="Write a comment..." className="w-full py-2 px-2 my-2 bg-transparent border rounded text-sm pl-0 text-gray-800" data-ms-editor="true" />
+                            <input type="text" name='comment' placeholder="Write a comment..." className="w-full py-2 px-2 my-2 bg-gray-100 border rounded text-sm pl-0 text-gray-800" data-ms-editor="true" />
                             <button type='submit' className="h-9 px-2 py-1 ml-3 font-semibold rounded text-blue-600 hover:bg-purple-600 hover:text-white">Add</button>
                         </form>
                     }

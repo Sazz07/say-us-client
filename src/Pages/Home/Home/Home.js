@@ -2,6 +2,7 @@ import React from 'react';
 import LeftSideNav from '../../Shared/LeftSideNav/LeftSideNav';
 import RightSideNav from '../../Shared/RightSideNav/RightSideNav';
 import AddPost from '../AddPost/AddPost';
+import TopPosts from '../TopPosts/TopPosts';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
                 </div>
                 <div className="lg:w-[60%] w-full">
                     <AddPost></AddPost>
+                    <TopPosts></TopPosts>
                 </div>
                 <div className="hidden lg:block w-[20%]">
                     <RightSideNav />
