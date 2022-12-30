@@ -71,22 +71,22 @@ const AddPost = () => {
     }
     return (
         user?.email ?
-            <div id='addpost' className='bg-white shadow w-7/12 mx-auto my-36 pt-6 pb-3 px-4'>
+            <div id='addPost' className='bg-white shadow-lg w-4/5 mx-auto pt-6 pb-3 px-4'>
                 <div className='flex' >
                     <div>
                         {
-                            user?.photoURL && <img src={user?.photoURL} alt='' referrerpolicy='no-referrer' className='rounded-full h-12 w-12' />
+                            user?.photoURL && <img src={user?.photoURL} alt='' referrerPolicy='no-referrer' className='rounded-full h-12 w-12' />
                         }
                     </div>
                     <div className='w-full ml-3'>
                         <form onSubmit={handleSubmit}>
-                            <input required type='text' name='postText' placeholder="What's happening" className='bg-stone-200 w-full rounded px-6 py-3' />
+                            <input required type='text' name='postText' placeholder="What's on your mind?" className='bg-gray-100 w-full shadow-sm rounded px-6 py-3' />
                             <div className='flex justify-between mt-3'>
-                                <div className='flex items-center' onClick={() => imageRef.current.click()}>
+                                <div className='flex items-center cursor-pointer' onClick={() => imageRef.current.click()}>
                                     <FiImage className='text-2xl'></FiImage>
                                     <p className='ml-1 mb-0 text-lg'>Photo</p>
                                 </div>
-                                <button type='submit' className="px-6 py-1 text-lg rounded bg-indigo-600 hover:bg-indigo-800 hover:text-white text-gray-50">Submit</button>
+                                <button type='submit' className="px-6 py-1 text-lg rounded bg-indigo-600 hover:bg-indigo-800 hover:text-white text-gray-50">Post</button>
                                 <div style={{ display: "none" }}>
                                     <input
                                         type="file"
@@ -110,7 +110,7 @@ const AddPost = () => {
                 }
             </div>
             :
-            <div id='addpost' className='text-center my-36'>
+            <div id='addPost' className='text-center my-36'>
                 <h4>Please <a href='/login'>Login</a> To Add Post!</h4>
             </div>
     );
